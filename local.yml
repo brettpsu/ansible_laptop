@@ -12,3 +12,20 @@
         - vim
         - tree
         - nmap
+
+  - name: copy wallpaper file
+    copy: 
+      src: files/Sci-milkyway-1085287936.png
+      dest: /usr/share/backgrounds/Sci-milkyway-1085287936.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "`file:///usr/share/backgrounds/Sci-milkyway-1085287936.png`"
+
+  - name: set wallpaper position
+    deconf:
+      key: "/org/ghnome/desktop/background/picture-options"
+      value:  "`zoom`"
