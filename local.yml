@@ -26,6 +26,6 @@
       value: "`file:///usr/share/backgrounds/Sci-milkyway-1085287936.png`"
 
   - name: set wallpaper position
-    deconf:
+    dconf:
       key: "/org/ghnome/desktop/background/picture-options"
       value:  "`zoom`"
