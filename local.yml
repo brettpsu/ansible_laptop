@@ -22,20 +22,8 @@
 
   - name: set wallpaper
     become_user: brett
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "file:///usr/share/backgrounds/f41/default/Sci-milkyway-1085287936.png"
+    command: dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/f41/default/Sci-milkyway-1085287936.png'"
   
   - name: set wallpaper position
     become_user: brett
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "zoom"
-
-  - name: debug current wallpaper setting
-    become_user: brett
-    command: dconf read /org/gnome/desktop/background/picture-uri
-    register: current_wallpaper
-
-  - debug:
-      var: current_wallpaper
+    command: dconf write /org/gnome/desktop/background/picture-options "'zoom'"
