@@ -22,8 +22,8 @@
 
   - name: set wallpaper
     become_user: brett
-    command: dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/f41/default/Sci-milkyway.png'"
+    command: gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/f41/default/Sci-milkyway.png'
   
   - name: set wallpaper position
     become_user: brett
-    command: dconf write /org/gnome/desktop/background/picture-options "'zoom'"
+    command: gsettings set org.gnome.desktop.background picture-options 'zoom'
