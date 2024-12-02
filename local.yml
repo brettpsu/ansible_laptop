@@ -34,3 +34,13 @@
       dest: /home/brett/.bashrc
       owner: brett
       group: brett
+
+  - name: set up sudo for user brett
+    copy:
+      src: files/sudoer_brett
+      dest: /etc/sudoers.d/brett
+      owner: root
+      group: root
+      mode: 0440
+
+  - name:
