@@ -31,3 +31,11 @@
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "zoom"
+
+  - name: debug current wallpaper setting
+    become_user: brett
+    command: dconf read /org/gnome/desktop/background/picture-uri
+    register: current_wallpaper
+
+  - debug:
+      var: current_wallpaper
