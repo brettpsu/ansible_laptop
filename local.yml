@@ -23,7 +23,7 @@
   - name: set wallpaper
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
-      value: "`file:///usr/share/backgrounds/Sci-milkyway-1085287936.png`"
+      value: "file:///usr/share/backgrounds/Sci-milkyway-1085287936.png"
 
   - name: set wallpaper position
     dconf:
