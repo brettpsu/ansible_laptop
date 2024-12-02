@@ -28,4 +28,4 @@
   - name: set wallpaper position
     dconf:
       key: "/org/ghnome/desktop/background/picture-options"
-      value:  "`zoom`"
+      value:  "zoom"
