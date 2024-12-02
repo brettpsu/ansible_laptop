@@ -16,12 +16,12 @@
   - name: copy wallpaper file
     copy: 
       src: files/Sci-milkyway-1085287936.png
-      dest: /usr/share/backgrounds/Sci-milkyway-1085287936.png
+      dest: /usr/share/backgrounds/f41/default/Sci-milkyway-1085287936.png
       owner: root
       group: root
 
   - name: set wallpaper
-    shell: gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/Sci-milkyway-1085287936.png"
+    shell: gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/f41/default/Sci-milkyway-1085287936.png"
 
   - name: set wallpaper position
     shell: gsettings set org.gnome.desktop.background picture-options "zoom"
