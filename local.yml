@@ -21,11 +21,7 @@
       group: root
 
   - name: set wallpaper
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "file:///usr/share/backgrounds/Sci-milkyway-1085287936.png"
+    shell: gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/Sci-milkyway-1085287936.png"
 
   - name: set wallpaper position
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value:  "zoom"
+    shell: gsettings set org.gnome.desktop.bakcground picture-options "zoom"
