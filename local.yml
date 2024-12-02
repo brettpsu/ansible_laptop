@@ -21,11 +21,13 @@
       group: root
 
   - name: set wallpaper
+    become_user: brett
     dconf:
       key: "/org/gnome/desktop/background/ picture-uri"
       value: "file:///usr/share/backgrounds/f41/default/Sci-milkyway-1085287936.png"
   
   - name: set wallpaper position
+    become_user: brett
     dconf:
       key: "/org/gnome/desktop/background/ picture-options"
       value: "zoom"
