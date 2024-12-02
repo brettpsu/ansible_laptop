@@ -12,17 +12,20 @@
         - vim
         - tree
         - nmap
+        - gnome-shell-extension-manager
+        - gnome-shell-extension-dash-to-dock
+        - gnome-shell-extension-system-monitor-next
 
   - name: copy wallpaper file
     copy: 
-      src: files/Sci-milkyway-1085287936.png
-      dest: /usr/share/backgrounds/f41/default/Sci-milkyway.png
+      src: files/Sci-milkyway.png
+      dest: /home/brett/.local/share/backgrounds/Sci-milkyway.png
       owner: root
       group: root
 
   - name: set wallpaper
     become_user: brett
-    command: gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/f41/default/Sci-milkyway.png'
+    command: gsettings set org.gnome.desktop.background picture-uri 'file:///home/brett/.local/share/backgrounds/Sci-milkyway.png'
   
   - name: set wallpaper position
     become_user: brett
@@ -42,3 +45,15 @@
       owner: root
       group: root
       mode: 0440
+
+  - name: enable Extension Manager
+    become_user: brett
+    command: gnome-extensions enable extension-manager@pew.worldwidemann.com
+
+  - name: enable Dash to Dock
+    become_user: brett
+    command: gnome-extensions enable dash-to-dock@micxgx.gmail.com
+
+  - name: enable System Monitor Next
+    become_user: brett
+    command: gnome-extensions enable system-monitor-next@paradoxxx.zero.gmail.com
