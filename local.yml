@@ -24,4 +24,4 @@
     shell: gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/Sci-milkyway-1085287936.png"
 
   - name: set wallpaper position
-    shell: gsettings set org.gnome.desktop.bakcground picture-options "zoom"
+    shell: gsettings set org.gnome.desktop.background picture-options "zoom"
