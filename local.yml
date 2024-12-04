@@ -14,7 +14,7 @@
         - nmap
         - btrfs-assistant
         - gnome-shell-extension-dash-to-dock
-        - gnome-shell-extension-system-monitor-next
+        - gnome-shell-extension-system-monitor
 
   - name: install Extension Manager via Flatpak
     become: true
