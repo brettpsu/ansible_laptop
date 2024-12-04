@@ -12,9 +12,13 @@
         - vim
         - tree
         - nmap
-        - gnome-shell-extension-manager
+        - btrfs-assistant
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-system-monitor-next
+
+  - name: install Extension Manager via Flatpak
+    become: true
+    command: flatpak install -y flathub com.mattjakeman.ExtensionManager
 
   - name: copy wallpaper file
     copy: 
@@ -48,7 +52,7 @@
 
   - name: enable Extension Manager
     become_user: brett
-    command: gnome-extensions enable extension-manager@pew.worldwidemann.com
+    command: flatpak run com.mattjakeman.ExtensionManager enable extension-manager@pew.worldwidemann.com
 
   - name: enable Dash to Dock
     become_user: brett
