@@ -3,61 +3,18 @@
   connection: local
   become: true
 
+  pre_tasks:
+    - name: Update system packages
+      dnf:
+        name: '*'
+        state: latest
+        update_cache: yes
+
+    - name: Clean package cache
+      dnf:
+        name: '*'
+        state: absent
+        clean: yes
+
   tasks:
-  - name: install packages
-    package:
-      name:
-        - htop
-        - tmux
-        - vim
-        - tree
-        - nmap
-        - btrfs-assistant
-        - gnome-shell-extension-dash-to-dock
-        - gnome-shell-extension-system-monitor
-
-  - name: install Extension Manager via Flatpak
-    become: true
-    command: flatpak install -y flathub com.mattjakeman.ExtensionManager
-
-  - name: copy wallpaper file
-    copy: 
-      src: files/Sci-milkyway.png
-      dest: /home/brett/.local/share/backgrounds/Sci-milkyway.png
-      owner: root
-      group: root
-
-  - name: set wallpaper
-    become_user: brett
-    command: gsettings set org.gnome.desktop.background picture-uri 'file:///home/brett/.local/share/backgrounds/Sci-milkyway.png'
-  
-  - name: set wallpaper position
-    become_user: brett
-    command: gsettings set org.gnome.desktop.background picture-options 'zoom'
-
-  - name: copy .bashrc file
-    copy:
-      src: files/bashrc
-      dest: /home/brett/.bashrc
-      owner: brett
-      group: brett
-
-  - name: set up sudo for user brett
-    copy:
-      src: files/sudoer_brett
-      dest: /etc/sudoers.d/brett
-      owner: root
-      group: root
-      mode: 0440
-
-  - name: enable Extension Manager
-    become_user: brett
-    command: flatpak run com.mattjakeman.ExtensionManager enable extension-manager@pew.worldwidemann.com
-
-  - name: enable Dash to Dock
-    become_user: brett
-    command: gnome-extensions enable dash-to-dock@micxgx.gmail.com
-
-  - name: enable System Monitor Next
-    become_user: brett
-    command: gnome-extensions enable system-monitor-next@paradoxxx.zero.gmail.com
+    - include: tasks/pacakages.yml
