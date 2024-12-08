@@ -3,18 +3,18 @@
   connection: local
   become: true
 
-  pre_tasks:
-    - name: Update system packages
-      dnf:
-        name: '*'
-        state: latest
-        update_cache: yes
-
-    - name: Clean package cache
-      dnf:
-        name: '*'
-        state: absent
-        clean: yes
+#  pre_tasks:
+#    - name: Update system packages
+#      dnf:
+#        name: '*'
+#        state: latest
+#        update_cache: yes
+#
+#    - name: Clean package cache
+#      dnf:
+#        name: '*'
+#        state: absent
+#        clean: yes
 
   tasks:
     - include_tasks: tasks/packages.yml

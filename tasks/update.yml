@@ -1,0 +1,10 @@
+- name: Update system packages
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Update all packages
+      dnf:
+        name: '*'
+        state: latest
+        update_cache: yes
