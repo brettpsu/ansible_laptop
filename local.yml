@@ -17,4 +17,4 @@
         clean: yes
 
   tasks:
-    - include: tasks/packages.yml
+    - include_tasks: tasks/packages.yml
