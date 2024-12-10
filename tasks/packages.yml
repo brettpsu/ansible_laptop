@@ -10,6 +10,25 @@
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-system-monitor
 
+  - name: Install dnf-plugins-core
+    dnf:
+      name: dnf-plugins-core
+      state: present
+
+  - name: Add Brave browser repository
+    become: true
+    command: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+
+  - name: Import Brave browser GPG key
+    rpm_key:
+      key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      state: present
+
+  - name: Install Brave browser
+    dnf:
+      name: brave-browser
+      state: present
+
   - name: install Extension Manager via Flatpak
     become: true
     command: flatpak install -y flathub com.mattjakeman.ExtensionManager
@@ -18,8 +37,8 @@
     copy: 
       src: files/Sci-milkyway.png
       dest: /home/brett/.local/share/backgrounds/Sci-milkyway.png
-      owner: root
-      group: root
+      owner: brett
+      group: brett
 
   - name: set wallpaper
     become_user: brett
