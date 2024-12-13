@@ -1,0 +1,15 @@
+---
+- name: Enable and start SSH on Fedora 41
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install OpenSSH server
+      dnf:
+        name: openssh-server
+        state: present
+
+    - name: Enable SSH service
+      systemd:
+        name: sshd
+        enabled: yes
+        state: started
