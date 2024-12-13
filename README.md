@@ -1,2 +1,2 @@
 # ansible_laptop
-Ansible configuration for laptops/workstation
+Ansible configuration for my laptops/workstations
