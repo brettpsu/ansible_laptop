@@ -36,13 +36,13 @@
   - name: copy wallpaper file
     copy: 
       src: files/Sci-milkyway.png
-      dest: /home/brett/.local/share/backgrounds/Sci-milkyway.png
+      dest: /home/brett/Pictures/Sci-milkyway.png
       owner: brett
       group: brett
 
   - name: set wallpaper
     become_user: brett
-    command: gsettings set org.gnome.desktop.background picture-uri 'file:///home/brett/.local/share/backgrounds/Sci-milkyway.png'
+    command: gsettings set org.gnome.desktop.background picture-uri 'file:///home/brett/Pictures/Sci-milkyway.png'
   
   - name: set wallpaper position
     become_user: brett
