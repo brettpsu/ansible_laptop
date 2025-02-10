@@ -11,11 +11,11 @@
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-system-monitor
 
-#  - name: Install dnf-plugins-core
-#    dnf:
-#      name: dnf-plugins-core
-#      state: present
-#
+  - name: Install dnf-plugins-core
+    dnf:
+      name: dnf-plugins-core
+      state: present
+
 #  - name: Add Brave browser repository
 #    become: true
 #    command: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
@@ -29,6 +29,18 @@
 #    dnf:
 #      name: brave-browser
 #      state: present
+
+  - name: Install Flatpak
+    package:
+      name: flatpak
+      state: present
+
+  - name: Add Flathub repository
+    command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+  - name: Install Zoom
+    command: flatpak install -y flathub us.zoom.Zoom
+
 
   - name: install Extension Manager via Flatpak
     become: true
