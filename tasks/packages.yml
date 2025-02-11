@@ -3,11 +3,14 @@
       name:
         - htop
         - expect
+        - inxi
+        - xrandr
         - tmux
         - vim
         - tree
         - nmap
         - btrfs-assistant
+        - fastfetch
         - gnome-tweaks
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-system-monitor
